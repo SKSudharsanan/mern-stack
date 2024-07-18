@@ -23,13 +23,16 @@ npm run start
 # code for index.js
 
 ```js
-
 const express = require('express')
+const cors = require('cors')
 const app = express()
 const port = 3005
 
-app.get('/api/message', (req, res) => {
-  res.json({"message":"Hello World"})
+app.use(cors())
+
+app.get('/api/message/:name', (req, res) => {
+    let name = req.params.name;
+  res.json({"message":name})
 })
 
 app.listen(port, () => {
@@ -40,13 +43,13 @@ app.listen(port, () => {
 # cd frontend
 
 ```js
-import React, { useEffect, useState } from 'react';
+/import React, { useEffect, useState } from 'react';
 
 function App() {
   const [message, setMessage] = useState('');
 
   useEffect(() => {
-    fetch('http://localhost:3005/api/message')
+    fetch('http://localhost:3005/api/message/sudharsanan')
       .then(response => response.json())
       .then(data => setMessage(data.message));
   }, []);
