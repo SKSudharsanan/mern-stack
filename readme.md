@@ -1,8 +1,6 @@
 # INstructions for creating project
 
 ```bash
-
-
 mkdir mern-stack
 cd mern-stack
 code .
@@ -13,7 +11,7 @@ npx create-react-app frontend
 mkdir backend
 cd backend
 npm init
-npm i express
+npm i express cors
 touch index.js
 node index.js
 cd frontend
