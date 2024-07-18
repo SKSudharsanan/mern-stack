@@ -26,7 +26,7 @@ npm run start
 
 const express = require('express')
 const app = express()
-const port = 3000
+const port = 3005
 
 app.get('/api/message', (req, res) => {
   res.json({"message":"Hello World"})
@@ -46,7 +46,7 @@ function App() {
   const [message, setMessage] = useState('');
 
   useEffect(() => {
-    fetch('/api/message')
+    fetch('http://localhost:3005/api/message')
       .then(response => response.json())
       .then(data => setMessage(data.message));
   }, []);

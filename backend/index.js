@@ -2,8 +2,9 @@ const express = require('express')
 const app = express()
 const port = 3005
 
-app.get('/api/message', (req, res) => {
-  res.json({"message":"Hello World"})
+app.get('/api/message/:name', (req, res) => {
+    let name = req.params.name;
+  res.json({"message":name})
 })
 
 app.listen(port, () => {
